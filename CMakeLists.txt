@@ -29,7 +29,10 @@ add_executable(Hexxagon main.cpp
         game/Entities/AIComputerPlayer.cpp
         game/Entities/AIComputerPlayer.h
         game/Entities/Hexagon.cpp
-        game/Entities/Hexagon.h)
+        game/Entities/Hexagon.h
+        game/main/gameboard/GameBoard.cpp
+        game/main/gameboard/GameBoard.h
+        game/main/gameboard/FieldOnTheGameBoard.cpp)
 
 target_link_libraries(
         Hexxagon

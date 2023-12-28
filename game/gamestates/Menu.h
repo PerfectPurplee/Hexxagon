@@ -5,13 +5,18 @@
 #ifndef HEXXAGON_MENU_H
 #define HEXXAGON_MENU_H
 
+#include <SFML/Graphics.hpp>
+
 
 class Menu {
 
-public:
-    void draw();
+private:
+    sf::RectangleShape rectangle;
 
-    void update();
+public:
+    void draw(sf::RenderWindow *pWindow);
+
+    void update(sf::RenderWindow *pWindow);
 };
 
 

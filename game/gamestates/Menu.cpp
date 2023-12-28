@@ -3,11 +3,14 @@
 //
 
 #include "Menu.h"
+#include "../main/gameboard/FieldOnTheGameBoard.cpp"
 
-void Menu::draw() {
+void Menu::draw(sf::RenderWindow *pWindow) {
+    FieldOnTheGameBoard fieldOnTheGameBoard(0, 0);
 
+    pWindow->draw(fieldOnTheGameBoard.hexagonField);
 }
 
-void Menu::update() {
+void Menu::update(sf::RenderWindow *pWindow) {
 
 }

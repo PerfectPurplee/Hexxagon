@@ -113,6 +113,22 @@ build CMakeFiles/Hexxagon.dir/game/Entities/Hexagon.cpp.obj: CXX_COMPILER__Hexxa
   OBJECT_DIR = CMakeFiles\Hexxagon.dir
   OBJECT_FILE_DIR = CMakeFiles\Hexxagon.dir\game\Entities
 
+build CMakeFiles/Hexxagon.dir/game/main/gameboard/GameBoard.cpp.obj: CXX_COMPILER__Hexxagon_unscanned_Debug C$:/Users/Drizzt/CLionProjects/Hexxagon/game/main/gameboard/GameBoard.cpp || cmake_object_order_depends_target_Hexxagon
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Hexxagon.dir\game\main\gameboard\GameBoard.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Drizzt/CLionProjects/Hexxagon/cmake-build-debug/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\Hexxagon.dir
+  OBJECT_FILE_DIR = CMakeFiles\Hexxagon.dir\game\main\gameboard
+
+build CMakeFiles/Hexxagon.dir/game/main/gameboard/FieldOnTheGameBoard.cpp.obj: CXX_COMPILER__Hexxagon_unscanned_Debug C$:/Users/Drizzt/CLionProjects/Hexxagon/game/main/gameboard/FieldOnTheGameBoard.cpp || cmake_object_order_depends_target_Hexxagon
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Hexxagon.dir\game\main\gameboard\FieldOnTheGameBoard.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Drizzt/CLionProjects/Hexxagon/cmake-build-debug/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\Hexxagon.dir
+  OBJECT_FILE_DIR = CMakeFiles\Hexxagon.dir\game\main\gameboard
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Hexxagon
@@ -121,7 +137,7 @@ build CMakeFiles/Hexxagon.dir/game/Entities/Hexagon.cpp.obj: CXX_COMPILER__Hexxa
 #############################################
 # Link the executable Hexxagon.exe
 
-build Hexxagon.exe: CXX_EXECUTABLE_LINKER__Hexxagon_Debug CMakeFiles/Hexxagon.dir/main.cpp.obj CMakeFiles/Hexxagon.dir/game/main/GameEngine.cpp.obj CMakeFiles/Hexxagon.dir/game/gamestates/Playing.cpp.obj CMakeFiles/Hexxagon.dir/game/gamestates/Menu.cpp.obj CMakeFiles/Hexxagon.dir/game/main/enums.cpp.obj CMakeFiles/Hexxagon.dir/game/Entities/Player.cpp.obj CMakeFiles/Hexxagon.dir/game/Entities/AIComputerPlayer.cpp.obj CMakeFiles/Hexxagon.dir/game/Entities/Hexagon.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
+build Hexxagon.exe: CXX_EXECUTABLE_LINKER__Hexxagon_Debug CMakeFiles/Hexxagon.dir/main.cpp.obj CMakeFiles/Hexxagon.dir/game/main/GameEngine.cpp.obj CMakeFiles/Hexxagon.dir/game/gamestates/Playing.cpp.obj CMakeFiles/Hexxagon.dir/game/gamestates/Menu.cpp.obj CMakeFiles/Hexxagon.dir/game/main/enums.cpp.obj CMakeFiles/Hexxagon.dir/game/Entities/Player.cpp.obj CMakeFiles/Hexxagon.dir/game/Entities/AIComputerPlayer.cpp.obj CMakeFiles/Hexxagon.dir/game/Entities/Hexagon.cpp.obj CMakeFiles/Hexxagon.dir/game/main/gameboard/GameBoard.cpp.obj CMakeFiles/Hexxagon.dir/game/main/gameboard/FieldOnTheGameBoard.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
   FLAGS = -g
   LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-window-s-d.a  _deps/sfml-build/lib/libsfml-system-s-d.a  -lopengl32  -lwinmm  -lgdi32  _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Hexxagon.dir

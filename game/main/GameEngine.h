@@ -21,9 +21,9 @@ private:
 
 
 //    Functions
-    void update();
+    void update(sf::RenderWindow *pWindow);
 
-    void render();
+    void render(sf::RenderWindow *pWindow);
 
     void running();
 

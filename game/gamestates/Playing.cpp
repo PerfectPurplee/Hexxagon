@@ -3,11 +3,12 @@
 //
 
 #include "Playing.h"
+#include "SFML/Graphics/RenderWindow.hpp"
 
-void Playing::draw() {
+void Playing::draw(sf::RenderWindow *pWindow) {
 
 }
 
-void Playing::update() {
+void Playing::update(sf::RenderWindow *pWindow) {
 
 }

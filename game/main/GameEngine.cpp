@@ -3,39 +3,36 @@
 
 
 GameEngine::GameEngine() {
-    this->videoMode = sf::VideoMode(1280, 720);
+    this->videoMode = sf::VideoMode(1920, 1080);
     this->window = new sf::RenderWindow(videoMode,
                                         "Hexxagon",
                                         sf::Style::Close | sf::Style::Titlebar);
     window->setFramerateLimit(60);
-
     this->currentGameState = GameStates::MENU;
-
-
 // Starts GameLoop
     this->running();
 }
 
-void GameEngine::render() {
+void GameEngine::render(sf::RenderWindow *pWindow) {
     switch (currentGameState) {
 
         case PLAYING:
-            this->playing.draw();
+            this->playing.draw(pWindow);
             break;
         case MENU:
-            this->menu.draw();
+            this->menu.draw(pWindow);
             break;
     }
 }
 
-void GameEngine::update() {
+void GameEngine::update(sf::RenderWindow *pWindow) {
     switch (currentGameState) {
 
         case PLAYING:
-            this->playing.update();
+            this->playing.update(pWindow);
             break;
         case MENU:
-            this->menu.update();
+            this->menu.update(pWindow);
             break;
     }
 }
@@ -52,10 +49,10 @@ void GameEngine::running() {
 
         window->clear();
 //        Logical updates
-        this->update();
+        this->update(window);
 
 //        Drawing
-        this->render();
+        this->render(window);
 
         window->display();
     }
