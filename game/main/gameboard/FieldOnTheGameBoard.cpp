@@ -23,6 +23,7 @@ struct FieldOnTheGameBoard {
         hexagonField.setOutlineThickness(10);
         hexagonField.setFillColor(sf::Color(88, 22, 145));
         hexagonField.setOutlineColor(sf::Color(139, 34, 230));
+       
     }
 
     static sf::Vector2f hexagonPoint(float centerX, float centerY, float size, int i) {

@@ -7,7 +7,14 @@
 class GameBoard {
 
 private:
-    std::vector<FieldOnTheGameBoard> vec = std::vector<FieldOnTheGameBoard>();
+//    Variables
+    std::vector<FieldOnTheGameBoard> ListOfGameBoardFields;
+
+//    Functions
+    void initGameBoardFields();
+
+public:
+    GameBoard();
 
 };
 
