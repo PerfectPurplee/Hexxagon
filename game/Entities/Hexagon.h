@@ -1,16 +1,19 @@
-//
-// Created by Drizzt on 27/12/2023.
-//
+#pragma once
 
-#ifndef HEXXAGON_HEXAGON_H
-#define HEXXAGON_HEXAGON_H
-
+#include <SFML/Graphics.hpp>
 
 class Hexagon {
 
-    
+private:
 
+
+
+public:
+    sf::CircleShape hexagonVisual;
+    Hexagon(float x, float y);
+
+    const sf::CircleShape &getHexagonVisual() const;
 };
 
 
-#endif //HEXXAGON_HEXAGON_H
+

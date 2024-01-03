@@ -2,37 +2,53 @@
 #include "GameEngine.h"
 
 
-GameEngine::GameEngine() {
-    this->videoMode = sf::VideoMode(1920, 1080);
-    this->window = new sf::RenderWindow(videoMode,
-                                        "Hexxagon",
-                                        sf::Style::Close | sf::Style::Titlebar);
-    window->setFramerateLimit(60);
-    this->currentGameState = GameStates::MENU;
+GameEngine::GameEngine()
+        : videoMode(1280, 720),
+          window(videoMode,
+                 "Hexxagon",
+                 sf::Style::Close | sf::Style::Titlebar),
+          playing(window),
+          menu(window) {
+
+    this->window.setFramerateLimit(60);
+    this->currentGameState = GameStates::PLAYING;
+
 // Starts GameLoop
     this->running();
 }
 
-void GameEngine::render(sf::RenderWindow *pWindow) {
+void GameEngine::render() {
     switch (currentGameState) {
 
         case PLAYING:
-            this->playing.draw(pWindow);
+            this->playing.draw();
             break;
         case MENU:
-            this->menu.draw(pWindow);
+            this->menu.draw();
             break;
     }
 }
 
-void GameEngine::update(sf::RenderWindow *pWindow) {
+void GameEngine::update() {
     switch (currentGameState) {
 
         case PLAYING:
-            this->playing.update(pWindow);
+            this->playing.update();
             break;
         case MENU:
-            this->menu.update(pWindow);
+            this->menu.update();
+            break;
+    }
+}
+
+void GameEngine::eventHandler(sf::Event event) {
+    switch (currentGameState) {
+
+        case PLAYING:
+            this->playing.eventHandler(event);
+            break;
+        case MENU:
+            this->menu.eventHandler(event);
             break;
     }
 }
@@ -40,22 +56,27 @@ void GameEngine::update(sf::RenderWindow *pWindow) {
 void GameEngine::running() {
 
 
-    while (window->isOpen()) {
+    while (window.isOpen()) {
         auto event = sf::Event();
-        while (window->pollEvent(event)) {
+        while (window.pollEvent(event)) {
+//        Handle events in current game state
+            this->eventHandler(event);
+
             if (event.type == sf::Event::Closed)
-                window->close();
+                window.close();
         }
 
-        window->clear();
+        window.clear(sf::Color::Black);
 //        Logical updates
-        this->update(window);
+        this->update();
 
 //        Drawing
-        this->render(window);
+        this->render();
 
-        window->display();
+        window.display();
     }
 }
+
+
 
 

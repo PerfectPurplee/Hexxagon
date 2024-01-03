@@ -12,8 +12,7 @@ private:
 
 //    Variables
     sf::VideoMode videoMode;
-    sf::RenderWindow *window;
-
+    sf::RenderWindow window;
     GameStates currentGameState;
 
     Playing playing;
@@ -21,9 +20,11 @@ private:
 
 
 //    Functions
-    void update(sf::RenderWindow *pWindow);
+    void eventHandler(sf::Event event);
 
-    void render(sf::RenderWindow *pWindow);
+    void update();
+
+    void render();
 
     void running();
 

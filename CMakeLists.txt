@@ -33,7 +33,8 @@ add_executable(Hexxagon main.cpp
         game/main/gameboard/GameBoard.cpp
         game/main/gameboard/GameBoard.h
         game/main/gameboard/FieldOnTheGameBoard.cpp
-        game/main/gameboard/GameBoard.cpp)
+        game/main/gameboard/GameBoard.cpp
+        game/gamestates/GameState.h)
 
 target_link_libraries(
         Hexxagon

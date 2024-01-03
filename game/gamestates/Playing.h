@@ -1,20 +1,33 @@
-//
-// Created by Drizzt on 27/12/2023.
-//
-
-#ifndef HEXXAGON_PLAYING_H
-#define HEXXAGON_PLAYING_H
+#pragma once
 
 
 #include "SFML/Graphics/RenderWindow.hpp"
+#include "../main/gameboard/GameBoard.h"
+#include "GameState.h"
 
-class Playing {
+class Playing : public GameState {
+
+private:
+    sf::RenderWindow* pWindow;
+    GameBoard gameBoard;
 
 public:
-    void draw(sf::RenderWindow *pWindow);
+//  Constructors & Deconstructors
+    explicit Playing(sf::RenderWindow& window);
 
-    void update(sf::RenderWindow *pWindow);
+//  Functions
+    void eventHandler(sf::Event event) override;
+
+    void update() override;
+
+    void draw() override;
+
+
+    void handleMouseEventOnField(sf::Event event);
+
+    void checkPossibleMoves(FieldOnTheGameBoard& fieldOnTheGameBoard);
+
 };
 
 
-#endif //HEXXAGON_PLAYING_H
+

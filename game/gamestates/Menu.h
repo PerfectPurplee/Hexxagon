@@ -1,23 +1,28 @@
-//
-// Created by Drizzt on 27/12/2023.
-//
-
-#ifndef HEXXAGON_MENU_H
-#define HEXXAGON_MENU_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
+#include "../main/gameboard/GameBoard.h"
+#include "GameState.h"
 
 
-class Menu {
+class Menu : public GameState {
 
 private:
     sf::RectangleShape rectangle;
+    sf::RenderWindow* pWindow;
+
 
 public:
-    void draw(sf::RenderWindow *pWindow);
+    explicit Menu(sf::RenderWindow& window);
 
-    void update(sf::RenderWindow *pWindow);
+    void eventHandler(sf::Event event) override;
+
+    void update() override;
+
+    void draw() override;
+
+
 };
 
 
-#endif //HEXXAGON_MENU_H
+
