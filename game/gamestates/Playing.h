@@ -40,6 +40,13 @@ public:
 
     void handlePlayerMove(FieldOnTheGameBoard &fieldOnTheGameBoard);
 
+    void takeOverNeighborEnemyPlayerFields(FieldOnTheGameBoard &fieldOnTheGameBoard);
+
+    void checkForGameOver();
+
+
+//    Getters and Setters
+
     void setInitialPlayerHexagons();
 
 };

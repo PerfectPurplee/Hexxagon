@@ -15,7 +15,7 @@ private:
     static int counter;
     const int ID;
 //    Used to track player points
-    std::set<Hexagon> setOfPlayerHexagons;
+    std::set<Hexagon *> setOfPlayerHexagons;
 
 
 public:
@@ -24,7 +24,7 @@ public:
 
     const int getId() const;
 
-    const std::set<Hexagon> &getSetOfPlayerHexagons();
+     std::set<Hexagon *> &getSetOfPlayerHexagons();
 
 };
 

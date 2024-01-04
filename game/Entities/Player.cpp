@@ -9,7 +9,7 @@ Player::Player() : ID(++counter) {
 
 }
 
-const std::set<Hexagon> &Player::getSetOfPlayerHexagons() {
+ std::set<Hexagon*> &Player::getSetOfPlayerHexagons() {
     return setOfPlayerHexagons;
 }
 

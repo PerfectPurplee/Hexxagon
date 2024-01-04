@@ -16,9 +16,13 @@ public:
 
     Hexagon(float x, float y, Player *player_);
 
-    const sf::CircleShape &getHexagonVisual() const;
+
+// Getters and Setters
+    void setPlayer(Player *player);
 
     Player *getPlayer() const;
+
+    const sf::CircleShape &getHexagonVisual() const;
 };
 
 

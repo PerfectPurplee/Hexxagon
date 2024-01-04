@@ -44,7 +44,8 @@ void Playing::handleMouseEventOnField(sf::Event event) {
         return element.hexagonField.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y);
     });
 //    PLAYER CHOSE HIS FIELD AND CHECKS POSSIBLE MOVES
-    if (chosenField != gameBoard.getListOfGameBoardFields().end() && chosenField->hexagon != nullptr && chosenField->hexagon->getPlayer() == currentRoundPlayer) {
+    if (chosenField != gameBoard.getListOfGameBoardFields().end() && chosenField->hexagon != nullptr &&
+        chosenField->hexagon->getPlayer() == currentRoundPlayer) {
         checkPossibleMoves(*chosenField);
     }
 //    HANDLES PLAYER MOVE (chosenField in this case is a field player will make a move to)
@@ -99,6 +100,7 @@ void Playing::handlePlayerMove(FieldOnTheGameBoard &chosenField) {
     auto it1 = std::ranges::find(currentOneStepPossibleMoves, &chosenField);
     auto it2 = std::ranges::find(currentTwoStepPossibleMoves, &chosenField);
 
+//    Handles player move to neighbour fields
     if (it1 != currentOneStepPossibleMoves.end()) {
         chosenField.hexagon = new Hexagon(chosenField.hexagonField.getPosition().x + 45,
                                           chosenField.hexagonField.getPosition().y + 45,
@@ -108,10 +110,17 @@ void Playing::handlePlayerMove(FieldOnTheGameBoard &chosenField) {
         std::ranges::for_each(gameBoard.getListOfGameBoardFields(), [](FieldOnTheGameBoard &element) {
             element.hexagonField.setOutlineColor(sf::Color(139, 34, 230));
         });
+//        TAKE OVER NEIGHOBR ENEMY FIELDS
+        takeOverNeighborEnemyPlayerFields(chosenField);
+
 //        ENDS PLAYER ROUND AND START ROUND FOR OTHER PLAYER
         currentRoundPlayer == &player1 ? currentRoundPlayer = &player2 : currentRoundPlayer = &player1;
 
+//        Handles player move to neighbour + 1 fields
     } else if (it2 != currentTwoStepPossibleMoves.end()) {
+//        Removes a pointer to hexagon from player list for score purposes
+        pOriginFieldOfPlayerMove->hexagon->getPlayer()->getSetOfPlayerHexagons().erase(
+                pOriginFieldOfPlayerMove->hexagon);
         pOriginFieldOfPlayerMove->hexagon = nullptr;
 
         chosenField.hexagon = new Hexagon(chosenField.hexagonField.getPosition().x + 45,
@@ -122,9 +131,46 @@ void Playing::handlePlayerMove(FieldOnTheGameBoard &chosenField) {
         std::ranges::for_each(gameBoard.getListOfGameBoardFields(), [](FieldOnTheGameBoard &element) {
             element.hexagonField.setOutlineColor(sf::Color(139, 34, 230));
         });
+
+        takeOverNeighborEnemyPlayerFields(chosenField);
 //        ENDS PLAYER ROUND AND START ROUND FOR OTHER PLAYER
         currentRoundPlayer == &player1 ? currentRoundPlayer = &player2 : currentRoundPlayer = &player1;
     }
+
+}
+
+void Playing::takeOverNeighborEnemyPlayerFields(FieldOnTheGameBoard &fieldToCheckForEnemyNeighbors) {
+    auto listOfFieldsToTakeOver = std::vector<FieldOnTheGameBoard *>();
+
+    for (auto &field: gameBoard.getListOfGameBoardFields()) {
+        auto it = std::ranges::find_if(
+                gameBoard.directionsOneStep,
+                [&](const HexCoordinates &direction) {
+                    return (
+                            field.hexCoordinates->q == fieldToCheckForEnemyNeighbors.hexCoordinates->q + direction.q &&
+                            field.hexCoordinates->r == fieldToCheckForEnemyNeighbors.hexCoordinates->r + direction.r &&
+                            field.hexCoordinates->s == fieldToCheckForEnemyNeighbors.hexCoordinates->s + direction.s &&
+                            field.hexagon != nullptr && field.hexagon->getPlayer() != currentRoundPlayer);
+                });
+        if (it != gameBoard.directionsOneStep.end()) {
+            listOfFieldsToTakeOver.push_back(&field);
+        }
+    }
+    for (auto &element: listOfFieldsToTakeOver) {
+//        Erase hexagon pointer element from one player list, change player owning hexagon and add hexagon to his list
+        element->hexagon->getPlayer()->getSetOfPlayerHexagons().erase(element->hexagon);
+        element->hexagon->setPlayer(currentRoundPlayer);
+        element->hexagon->getPlayer()->getSetOfPlayerHexagons().insert(element->hexagon);
+//        Swaps Hexagon color
+        element->hexagon->hexagonVisual.getFillColor() == sf::Color::Red ?
+        element->hexagon->hexagonVisual.setFillColor(sf::Color::Blue) :
+        element->hexagon->hexagonVisual.setFillColor(sf::Color::Red);
+
+    }
+
+}
+
+void Playing::checkForGameOver() {
 
 }
 
@@ -154,6 +200,10 @@ void Playing::setInitialPlayerHexagons() {
             gameBoard.getListOfGameBoardFields()[56].hexagonField.getPosition().y + 45, &player2);
 
 }
+
+
+
+
 
 
 
