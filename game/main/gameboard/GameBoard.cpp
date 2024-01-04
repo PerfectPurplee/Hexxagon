@@ -4,13 +4,17 @@
 #include "ranges"
 #include "cmath"
 
+
+
+
 //Constructors and Deconstructors
 GameBoard::GameBoard() {
+
     this->listOfGameBoardFields = std::vector<FieldOnTheGameBoard>();
     this->initGameBoardFieldsBETTER();
 //    this->initGameBoardFields();
     this->setDrawingRepresentationForFields();
-    this->setInitialPlayerHexagons();
+//    this->setInitialPlayerHexagons();
     std::cout << listOfGameBoardFields.size();
 }
 
@@ -66,12 +70,13 @@ void GameBoard::initGameBoardFields() {
 }
 
 void GameBoard::setInitialPlayerHexagons() {
-    listOfGameBoardFields[4].hexagon = new Hexagon(listOfGameBoardFields[4].hexagonField.getPosition().x + 45,
-                                                   listOfGameBoardFields[4].hexagonField.getPosition().y + 45);
-    listOfGameBoardFields[26].hexagon = new Hexagon(listOfGameBoardFields[26].hexagonField.getPosition().x + 45,
-                                                    listOfGameBoardFields[26].hexagonField.getPosition().y + 45);
-    listOfGameBoardFields[60].hexagon = new Hexagon(listOfGameBoardFields[60].hexagonField.getPosition().x + 45,
-                                                    listOfGameBoardFields[60].hexagonField.getPosition().y + 45);
+//    listOfGameBoardFields[4].hexagon = new Hexagon(listOfGameBoardFields[4].hexagonField.getPosition().x + 45,
+//                                                   listOfGameBoardFields[4].hexagonField.getPosition().y + 45,
+//                                                   );
+//    listOfGameBoardFields[26].hexagon = new Hexagon(listOfGameBoardFields[26].hexagonField.getPosition().x + 45,
+//                                                    listOfGameBoardFields[26].hexagonField.getPosition().y + 45);
+//    listOfGameBoardFields[60].hexagon = new Hexagon(listOfGameBoardFields[60].hexagonField.getPosition().x + 45,
+//                                                    listOfGameBoardFields[60].hexagonField.getPosition().y + 45);
 
 }
 
@@ -98,8 +103,8 @@ void GameBoard::setDrawingRepresentationForFields() {
     auto initialPositionY = (720 / 2) - (allColumns / 2) * ((hexHeight - 10) / 2);
 
     for (auto &element: listOfGameBoardFields) {
-        auto x = 40 * (3. / 2 * element.hexCoordinates->q);
-        auto y = 40 * (sqrt(3) / 2 * element.hexCoordinates->q + sqrt(3) * element.hexCoordinates->r);
+        auto x = hexWidth * (3. / 2 * element.hexCoordinates->q);
+        auto y = hexWidth * (sqrt(3) / 2 * element.hexCoordinates->q + sqrt(3) * element.hexCoordinates->r);
         element.hexagonField.setPosition(x + initialPositionX, y + initialPositionY);
     }
 }

@@ -1,14 +1,32 @@
-//
-// Created by Drizzt on 27/12/2023.
-//
+#pragma once
 
-#ifndef HEXXAGON_PLAYER_H
-#define HEXXAGON_PLAYER_H
 
+#include <set>
+
+#include <iostream>
+#include "Hexagon.h"
+
+class Hexagon;
 
 class Player {
+
+private:
+
+    static int counter;
+    const int ID;
+//    Used to track player points
+    std::set<Hexagon> setOfPlayerHexagons;
+
+
+public:
+
+    Player();
+
+    const int getId() const;
+
+    const std::set<Hexagon> &getSetOfPlayerHexagons();
 
 };
 
 
-#endif //HEXXAGON_PLAYER_H
+

@@ -53,7 +53,7 @@ struct FieldOnTheGameBoard {
             hexagonField.setPoint(i, hexagonPoint(50, 50, 40, i));
         }
 
-        hexagonField.setOutlineThickness(-3);
+        hexagonField.setOutlineThickness(-4);
         hexagonField.setFillColor(sf::Color(88, 22, 145));
         hexagonField.setOutlineColor(sf::Color(139, 34, 230));
 
