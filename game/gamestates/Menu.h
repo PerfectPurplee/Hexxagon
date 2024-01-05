@@ -8,12 +8,19 @@
 class Menu : public GameState {
 
 private:
-    sf::RectangleShape rectangle;
-    sf::RenderWindow* pWindow;
+    sf::Font *font;
+    sf::RenderWindow *pWindow;
+    std::vector<std::pair<sf::RectangleShape, sf::Text>> listOfMenuButtons;
 
+
+
+//    functions
+    void initMenuButtons();
+
+    void createMenuButton(float x, float y, const std::string& buttonText);
 
 public:
-    explicit Menu(sf::RenderWindow& window);
+    Menu(sf::RenderWindow &window, sf::Font &font_);
 
     void eventHandler(sf::Event event) override;
 

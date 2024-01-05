@@ -14,6 +14,7 @@ private:
     sf::VideoMode videoMode;
     sf::RenderWindow window;
     GameStates currentGameState;
+    sf::Font font;
 
     Playing playing;
     Menu menu;
@@ -30,10 +31,15 @@ private:
 
 
 public:
+
+
 //Constructors & Deconstructors
     GameEngine();
 
 //Getters and Setters
+    const sf::Font &getFont();
+
+    void setFont();
 
 // Functions
 

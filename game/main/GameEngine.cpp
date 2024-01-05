@@ -1,4 +1,5 @@
 
+#include <filesystem>
 #include "GameEngine.h"
 
 
@@ -8,10 +9,12 @@ GameEngine::GameEngine()
                  "Hexxagon",
                  sf::Style::Close | sf::Style::Titlebar),
           playing(window),
-          menu(window) {
+          menu(window, font) {
 
     this->window.setFramerateLimit(60);
-    this->currentGameState = GameStates::PLAYING;
+    this->currentGameState = GameStates::MENU;
+    GameEngine::setFont();
+
 
 // Starts GameLoop
     this->running();
@@ -74,6 +77,16 @@ void GameEngine::running() {
         this->render();
 
         window.display();
+    }
+}
+
+const sf::Font &GameEngine::getFont() {
+    return font;
+}
+
+void GameEngine::setFont() {
+    if (!font.loadFromFile(R"(..\game\resources\fonts\DotGothic16-Regular.ttf)")) {
+        std::cout << std::filesystem::current_path();
     }
 }
 
