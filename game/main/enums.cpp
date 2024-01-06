@@ -1,11 +1,11 @@
 #pragma once
 
 enum GameStates {
-    PLAYING, MENU
+    PLAYING, MENU, SCOREBOARD
 };
 
-enum PlayerTurn {
-    PLAYER1TURN, PLAYER2TURN
+enum MenuStates {
+    MAIN_MENU, CHOOSING_GAME_MODE, LOADING_SAVE
 };
 
 

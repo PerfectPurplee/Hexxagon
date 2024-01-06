@@ -9,7 +9,7 @@ GameEngine::GameEngine()
                  "Hexxagon",
                  sf::Style::Close | sf::Style::Titlebar),
           playing(window),
-          menu(window, font) {
+          menu(window, font, currentGameState) {
 
     this->window.setFramerateLimit(60);
     this->currentGameState = GameStates::MENU;
@@ -29,6 +29,8 @@ void GameEngine::render() {
         case MENU:
             this->menu.draw();
             break;
+        case SCOREBOARD:
+            break;
     }
 }
 
@@ -41,6 +43,8 @@ void GameEngine::update() {
         case MENU:
             this->menu.update();
             break;
+        case SCOREBOARD:
+            break;
     }
 }
 
@@ -52,6 +56,8 @@ void GameEngine::eventHandler(sf::Event event) {
             break;
         case MENU:
             this->menu.eventHandler(event);
+            break;
+        case SCOREBOARD:
             break;
     }
 }

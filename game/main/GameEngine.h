@@ -6,7 +6,7 @@
 #include "../gamestates/Menu.h"
 
 
-class GameEngine {
+class  GameEngine {
 
 private:
 
