@@ -38,4 +38,4 @@ Make sure you have the following tools installed on your system:
 Clone the Hexxagon repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/hexxagon-clone.git
+git clone https://github.com/PerfectPurplee/Hexxagon.git
