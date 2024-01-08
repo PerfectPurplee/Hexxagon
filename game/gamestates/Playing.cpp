@@ -173,7 +173,7 @@ void Playing::takeOverNeighborEnemyPlayerFields(FieldOnTheGameBoard &fieldToChec
 void Playing::checkForGameOver() {
     if (player1.getSetOfPlayerHexagons().size() + player2.getSetOfPlayerHexagons().size() >= 61 ||
         (player1.getSetOfPlayerHexagons().empty() || player2.getSetOfPlayerHexagons().empty())) {
-        std::cout << "GAME OVER ";
+//        std::cout << "GAME OVER ";
     }
 }
 

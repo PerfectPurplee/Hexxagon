@@ -12,7 +12,7 @@ Hexagon::Hexagon(float x, float y, Player *player_) : player(player_) {
     hexagonVisual.setPosition(x - hexagonVisual.getRadius(), y - hexagonVisual.getRadius());
 
     player->getSetOfPlayerHexagons().insert(this);
-    std::cout << "ID: " << player->getId() << " HEXAGONS: " << player->getSetOfPlayerHexagons().size() << std::endl;
+//    std::cout << "ID: " << player->getId() << " HEXAGONS: " << player->getSetOfPlayerHexagons().size() << std::endl;
 }
 
 const sf::CircleShape &Hexagon::getHexagonVisual() const {

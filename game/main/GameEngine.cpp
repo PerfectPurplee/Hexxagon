@@ -92,7 +92,7 @@ const sf::Font &GameEngine::getFont() {
 
 void GameEngine::setFont() {
     if (!font.loadFromFile(R"(..\game\resources\fonts\DotGothic16-Regular.ttf)")) {
-        std::cout << std::filesystem::current_path();
+//        std::cout << std::filesystem::current_path();
     }
 }
 

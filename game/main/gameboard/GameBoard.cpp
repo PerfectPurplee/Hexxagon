@@ -15,7 +15,7 @@ GameBoard::GameBoard() {
 //    this->initGameBoardFields();
     this->setDrawingRepresentationForFields();
 //    this->setInitialPlayerHexagons();
-    std::cout << listOfGameBoardFields.size();
+//    std::cout << listOfGameBoardFields.size();
 }
 
 void GameBoard::initGameBoardFields() {

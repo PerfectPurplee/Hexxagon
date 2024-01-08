@@ -16,7 +16,7 @@ FetchContent_MakeAvailable(SFML)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Hexxagon main.cpp
+add_executable(Hexxagon WIN32 main.cpp
         game/main/GameEngine.cpp
         game/main/GameEngine.h
         game/gamestates/Playing.cpp
@@ -39,4 +39,5 @@ add_executable(Hexxagon main.cpp
 target_link_libraries(
         Hexxagon
         sfml-graphics
+        -static
 )
