@@ -34,7 +34,10 @@ add_executable(Hexxagon WIN32 main.cpp
         game/main/gameboard/GameBoard.h
         game/main/gameboard/FieldOnTheGameBoard.cpp
         game/main/gameboard/GameBoard.cpp
-        game/gamestates/GameState.h)
+        game/gamestates/GameState.h
+        game/main/AnimationEngine.cpp
+        game/main/AnimationEngine.h
+        game/main/Background.cpp)
 
 target_link_libraries(
         Hexxagon
